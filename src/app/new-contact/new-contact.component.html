@@ -1,0 +1,41 @@
+<form [formGroup]="newContact" (ngSubmit)="onSubmit()">
+
+    <label for="firstName">First Name:</label>
+    <input id="firstName" formControlName="firstName" />
+    <br />
+
+    <label for="middleName">Middle Name: </label>
+    <input id="middleName" formControlName="middleName" />
+    <br />
+
+    <label for="lastName">Last Name: </label>
+    <input id="lastName" formControlName="lastName" />
+    <br />
+
+    <label for="phoneNumber">Phone Number:</label>
+    <input id="phoneNumber" formControlName="phoneNumber" />
+    <br />
+
+    <label for="email">Email: </label>
+    <input id="email" formControlName="email" />
+    <br />
+
+    <label for="birthday">Birthday: </label>
+    <input id="birthday" formControlName="birthday" />
+
+    <ng-container formGroupName="address">
+        <label for="street">Street: </label>
+        <input id="street" formControlName="street" />
+
+        <label for="city">City: </label>
+        <input id="city" formControlName="city" />
+
+        <label for="zipcode">Zipcode: </label>
+        <input id="zipcode" formControlName="zipcode" />
+
+        <label for="state">State: </label>
+        <input id="sttate" formControlName="state" />
+    </ng-container>
+    <br />
+    <button type="submit">Add Contact</button>
+</form>
