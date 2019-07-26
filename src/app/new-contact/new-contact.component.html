@@ -21,7 +21,7 @@
     <br />
 
     <label for="birthday">Birthday: </label>
-    <input id="birthday" formControlName="birthday" />
+    <input id="birthday" formControlName="birthday" type='date' />
 
     <ng-container formGroupName="address">
         <label for="street">Street: </label>
@@ -37,5 +37,10 @@
         <input id="sttate" formControlName="state" />
     </ng-container>
     <br />
-    <button type="submit">Add Contact</button>
+    <!-- <button type="submit" [disabled]="newContact.invalid">Add Contact</button> -->
+    <button type="submit">submit</button>
+    <p>
+        {{errors}}
+    </p>
+
 </form>
