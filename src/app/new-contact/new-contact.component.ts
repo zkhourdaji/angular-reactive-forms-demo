@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { MyAddressValidator } from './my-address.validator';
 
 @Component({
   selector: 'app-new-contact',
@@ -23,14 +24,10 @@ export class NewContactComponent {
       city: [''],
       zipcode: [''],
       state: ['']
-    }, [MyDateValidator])
+    }, { validators: [MyAddressValidator()] })
   });
 
-  get errors() {
-    return this.newContact.get('firstName').errors;
-  }
   onSubmit() {
-    console.log(this.newContact.get('phoneNumber').errors);
-    //console.log(this.newContact.value);
+    console.log(this.newContact);
   }
 }
