@@ -34,7 +34,10 @@
         <input id="zipcode" formControlName="zipcode" />
 
         <label for="state">State: </label>
-        <input id="sttate" formControlName="state" />
+        <select id="state" formControlName="state">
+            <option value=''>State</option>
+            <option *ngFor="let state of states" [value]="state">{{state}}</option>
+        </select>
     </ng-container>
     <br />
     <button type="submit">submit</button>
