@@ -2,6 +2,9 @@
 
     <label for="firstName">First Name:</label>
     <input id="firstName" formControlName="firstName" />
+    <span *ngIf="submitted && firstName.errors?.required" style="color:red">
+        First name is required.
+    </span>
     <br />
 
     <label for="middleName">Middle Name: </label>
@@ -10,18 +13,34 @@
 
     <label for="lastName">Last Name: </label>
     <input id="lastName" formControlName="lastName" />
+    <span *ngIf="submitted && lastName.errors?.required" style="color:red">
+        Last name is required.
+    </span>
     <br />
 
     <label for="phoneNumber">Phone Number:</label>
     <input id="phoneNumber" formControlName="phoneNumber" />
+    <span *ngIf="submitted && phoneNumber.errors?.pattern" style="color:red">
+        Phone number format must be xxx-xxx-xxxx.
+    </span>
     <br />
 
     <label for="email">Email: </label>
     <input id="email" formControlName="email" />
+    <span *ngIf="submitted && email.errors?.required" style="color:red">
+        Email is required.
+    </span>
+    <span *ngIf="submitted && email.errors?.email" style="color:red">
+        Invalid email format.
+    </span>
     <br />
 
     <label for="birthday">Birthday: </label>
     <input id="birthday" formControlName="birthday" type='date' />
+    <span *ngIf="submitted && birthday.errors?.required" style="color:red">
+        Birthday is required.
+    </span>
+    <br />
 
     <ng-container formGroupName="address">
         <label for="street">Street: </label>
@@ -39,6 +58,9 @@
             <option *ngFor="let state of states" [value]="state">{{state}}</option>
         </select>
     </ng-container>
+    <span *ngIf="submitted && address.errors?.allFieldsMustBeProvided" style="color:red">
+        Address must be full.
+    </span>
     <br />
     <button type="submit">submit</button>
 </form>

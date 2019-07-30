@@ -19,6 +19,8 @@ export class NewContactComponent {
     'VA', 'VI', 'VT', 'WA', 'WI', 'WV', 'WY'
   ];
 
+  submitted = false;
+
   constructor(private fb: FormBuilder) { }
 
   newContact = this.fb.group({
@@ -36,7 +38,18 @@ export class NewContactComponent {
     }, { validators: [MyAddressValidator()] })
   });
 
+  get firstName() { return this.newContact.get('firstName'); }
+  get lastName() { return this.newContact.get('lastName'); }
+  get phoneNumber() { return this.newContact.get('phoneNumber'); }
+  get email() { return this.newContact.get('email'); }
+  get birthday() { return this.newContact.get('birthday'); }
+  get address() { return this.newContact.get('address'); }
+
   onSubmit() {
-    console.log(this.newContact);
+    if (this.newContact.invalid) {
+      this.submitted = true;
+    } else {
+      console.log(this.newContact.value);
+    }
   }
 }
